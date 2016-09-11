@@ -1,1 +1,5 @@
+IMAGE_WIDTH = 1280
+IMAGE_HEIGHT = 720
+
 DEEPMATCH_PATH = '/home/Futen/deepmatch/deepmatching'
+DEEPMATCH_THREAD = 8
