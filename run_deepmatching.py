@@ -7,6 +7,7 @@ import DeepLib as DL
 import cv2
 import gzip
 import pickle
+import SendEmail
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:
@@ -38,7 +39,7 @@ if __name__ == '__main__':
         print '%s ---------- %s'%(pair[0], pair[1])
         img_0 = '%s/%s'%(image_path, pair[0])
         img_1 = '%s/%s'%(image_path, pair[1])
-        command = '%s %s %s -nt %d -out %s'%(Config.DEEPMATCH_PATH, img_0, img_1, Config.DEEPMATCH_THREAD, out_name)
+        command = '%s %s %s -nt %d -downscale 2 -rot_range -1 +1 -out %s'%(Config.DEEPMATCH_PATH, img_0, img_1, Config.DEEPMATCH_THREAD, out_name)
         #print command
         #subprocess.call(command, shell=True)
     deep_file_lst = sorted(os.listdir(match_tmp_path))
@@ -56,12 +57,15 @@ if __name__ == '__main__':
             f = open('%s/%s'%(match_tmp_path, match_file), 'r') 
             for line in f:
                 line = line.split(' ')
-                A_row = int(line[1])
-                A_col = int(line[0])
-                B_row = int(line[3])
-                B_col = int(line[2])
+                A_row = int(float(line[1]))
+                A_col = int(float(line[0]))
+                B_row = int(float(line[3]))
+                B_col = int(float(line[2]))
                 A_loc = [A_row, A_col]
                 B_loc = [B_row, B_col]
+                #print A_loc
+                #print B_loc
+                #exit()
                 if not A_loc in pointRecord[img]:
                     pointRecord[img].append(A_loc)
                 if not B_loc in pointRecord[match_img]:
@@ -79,17 +83,19 @@ if __name__ == '__main__':
         pointRecord[img] = np.fliplr(pointRecord[img])
         data = {'color':color_data, 'points':pointRecord[img]}
         np.save('%s/%s_points.npy'%(match_path, img), data)
+        '''
         for key in matches:
             match_count = len(matches[key])
             print match_count
             indice = np.random.choice(range(0, match_count), 1000, replace=False)
             matches[key] = matches[key][indice, :]
+        '''
         with gzip.open('%s/%s_matches.pkl.gz'%(match_path, img), 'wb') as fout:
             pickle.dump(matches, fout)
         
         del pointRecord[img]
 
-
+    SendEmail.SendEmail()
 
 
 
