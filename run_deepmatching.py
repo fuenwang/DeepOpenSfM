@@ -5,6 +5,8 @@ import os
 import numpy as np
 import DeepLib as DL
 import cv2
+import gzip
+import pickle
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:
@@ -75,8 +77,15 @@ if __name__ == '__main__':
         color_data = img_color[tmp[:,0], tmp[:,1]]
         pointRecord[img] = DL.normalized_image_coordinates(tmp, Config.IMAGE_WIDTH, Config.IMAGE_HEIGHT)
         pointRecord[img] = np.fliplr(pointRecord[img])
-        data = {'color':color_data, 'points':pointRecord[img], 'matches':matches}
-        np.save('%s/%s.npy'%(match_path, img), data)
+        data = {'color':color_data, 'points':pointRecord[img]}
+        np.save('%s/%s_points.npy'%(match_path, img), data)
+        for key in matches:
+            match_count = len(matches[key])
+            print match_count
+            indice = np.random.choice(range(0, match_count), 1000, replace=False)
+            matches[key] = matches[key][indice, :]
+        with gzip.open('%s/%s_matches.pkl.gz'%(match_path, img), 'wb') as fout:
+            pickle.dump(matches, fout)
         
         del pointRecord[img]
 
