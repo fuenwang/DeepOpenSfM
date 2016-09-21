@@ -41,7 +41,7 @@ if __name__ == '__main__':
         img_1 = '%s/%s'%(image_path, pair[1])
         command = '%s %s %s -nt %d -downscale 2 -rot_range -1 +1 -out %s'%(Config.DEEPMATCH_PATH, img_0, img_1, Config.DEEPMATCH_THREAD, out_name)
         #print command
-        #subprocess.call(command, shell=True)
+        subprocess.call(command, shell=True)
     deep_file_lst = sorted(os.listdir(match_tmp_path))
     #print deep_file_lst
     pointRecord = {}
