@@ -12,5 +12,5 @@ more Deep-Learning-based matching method. Because the document is not completed 
 
 ## Constrain
 To make efficiency better, DeepOpenSfM only supports sequential frames extracted from video; that is, you have to extract video into 
-frames and give theirs name in order like img0001.jpg, img0002.jpg....., and our matching order will be img0001.jpg---->img0002.jpg, 
-img0001.jpg---->img0003.jpg, img0002.jpg---->img0003.jpg, img0002.jpg---->img0004.jpg and so on.
+frames and give theirs name in order like img0001.jpg, img0002.jpg....., and DeepOpenSfM will do sequential matching like 
+img0001.jpg---->img0002.jpg, img0001.jpg---->img0003.jpg, img0002.jpg---->img0003.jpg, img0002.jpg---->img0004.jpg and so on.
