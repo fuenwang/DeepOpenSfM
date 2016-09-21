@@ -7,7 +7,7 @@ import DeepLib as DL
 import cv2
 import gzip
 import pickle
-import SendEmail
+#import SendEmail
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:
@@ -78,7 +78,7 @@ if __name__ == '__main__':
         #print matches
         tmp = np.array(pointRecord[img])
         img_color = cv2.imread('%s/%s'%(image_path, img))
-        color_data = img_color[tmp[:,0], tmp[:,1]]
+        color_data = np.fliplr(img_color[tmp[:,0], tmp[:,1]])
         pointRecord[img] = DL.normalized_image_coordinates(tmp, Config.IMAGE_WIDTH, Config.IMAGE_HEIGHT)
         pointRecord[img] = np.fliplr(pointRecord[img])
         data = {'color':color_data, 'points':pointRecord[img]}
@@ -95,7 +95,7 @@ if __name__ == '__main__':
         
         del pointRecord[img]
 
-    SendEmail.SendEmail()
+    #SendEmail.SendEmail()
 
 
 
