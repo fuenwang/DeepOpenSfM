@@ -14,6 +14,6 @@ more Deep-Learning-based matching method. Because the document is not completed 
 <p>
 To make efficiency better, <a href="https://github.com/fuenwang/DeepOpenSfM">DeepOpenSfM</a> only supports sequential frames extracted 
 from video; that is, you have to extract video into frames with same size and give theirs name in order like img0001.jpg, 
-img0002.jpg....., and DeepOpenSfM will do sequential matching like img0001.jpg---->img0002.jpg, img0001.jpg---->img0003.jpg, 
-img0002.jpg---->img0003.jpg, img0002.jpg---->img0004.jpg and so on.
+img0002.jpg....., and <a href="https://github.com/fuenwang/DeepOpenSfM">DeepOpenSfM</a> will do sequential matching like 
+img0001.jpg---->img0002.jpg, img0001.jpg---->img0003.jpg, img0002.jpg---->img0003.jpg, img0002.jpg---->img0004.jpg and so on.
 </p>
