@@ -24,7 +24,7 @@ img0001.jpg---->img0002.jpg, img0001.jpg---->img0003.jpg, img0002.jpg---->img000
 
 ## Related work
 <p>
-<a href="https://github.com/mapillary/OpenSfM">OpenSfM</a>
+<a href="https://github.com/mapillary/OpenSfM">OpenSfM</a><br>
 <a href="https://arxiv.org/abs/1506.07656">DeepMatching: Hierarchical Deformable Dense Matching</a>
 </p>
 ## To be continued
