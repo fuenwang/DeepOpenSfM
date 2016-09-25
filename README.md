@@ -10,8 +10,8 @@ model reconstructed by <a href="https://github.com/mapillary/OpenSfM">OpenSfM</a
 more Deep-Learning-based matching method. Because the document is not completed yet, if you have any advise or question, just let us know!
 </p>
 <p align="center">
-  <img src="demo_img/demo2.png" width="450" height="246"></img>
-  <img src="demo_img/demo1.png" width="450" height="246"></img>
+  <img src="demo_img/demo2.png" width="430" height="246"></img>
+  <img src="demo_img/demo1.png" width="430" height="246"></img>
 </p>
 
 ## Constrain
