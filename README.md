@@ -14,7 +14,7 @@ more Deep-Learning-based matching method. Because the document is not completed 
   <img src="demo_img/demo1.png" width="430" height="246"></img>
 </p>
 
-## Constrain
+## Constraint
 <p>
 To make efficiency better, <a href="https://github.com/fuenwang/DeepOpenSfM">DeepOpenSfM</a> only supports sequential frames extracted 
 from video; that is, you have to extract video into frames with same size and give theirs name in order like img0001.jpg, 
